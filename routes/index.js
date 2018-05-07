@@ -19,7 +19,13 @@ const consejo = require('./consejo');
 const contacto_negocio = require('./contacto_negocio');
 const criterio = require('./criterio');
 const descripcion_negocio = require('./descripcion_negocio');
+const detalle_consejo = require('./detalle_consejo');
+const detalle_promocion = require('./detalle_promocion');
+const detalle_proveedor = require('./detalle_proveedor');
+const detalle_servicio = require('./detalle_servicio');
+const dia_laborable = require('./dia_laborable');
 const empleado = require('./empleado');
+const empleado_asignado = require('./empleado_asignado');
 const especialidad = require('./especialidad');
 const estado = require('./estado');
 const funcion = require('./funcion');
@@ -83,6 +89,12 @@ app.use('/',
 	especialidad,
 	sistema,
 	estado,
+	detalle_consejo,
+	detalle_promocion,
+	detalle_proveedor,
+	detalle_servicio,
+	dia_laborable,
+	empleado_asignado,
 );
 
 //---- Rutas Privadas ------
