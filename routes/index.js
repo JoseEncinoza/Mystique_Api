@@ -21,6 +21,7 @@ const criterio = require('./criterio');
 const descripcion_negocio = require('./descripcion_negocio');
 const empleado = require('./empleado');
 const especialidad = require('./especialidad');
+const estado = require('./estado');
 const funcion = require('./funcion');
 const imagen = require('./imagen');
 const negocio = require('./negocio');
@@ -81,6 +82,7 @@ app.use('/',
 	valor_parametro,
 	especialidad,
 	sistema,
+	estado,
 );
 
 //---- Rutas Privadas ------
