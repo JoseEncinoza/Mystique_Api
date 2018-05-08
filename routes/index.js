@@ -29,6 +29,7 @@ const empleado_asignado = require('./empleado_asignado');
 const especialidad = require('./especialidad');
 const estado = require('./estado');
 const funcion = require('./funcion');
+const garantia = require('./garantia');
 const imagen = require('./imagen');
 const negocio = require('./negocio');
 const objetivo = require('./objetivo');
@@ -37,6 +38,7 @@ const parametro = require('./parametro');
 const perfil = require('./perfil');
 const promocion =require('./promocion');
 const red_social = require('./red_social');
+const respuesta_solicitud = require('./respuesta_solicitud');
 const rol = require('./rol');
 const rol_funcion = require('./rol_funcion');
 const servicio = require('./servicio');
@@ -101,6 +103,8 @@ app.use('/',
 	solicitud,
 	orden_servicio,
 	servicio_solicitado,
+	garantia,
+	respuesta_solicitud,
 );
 
 //---- Rutas Privadas ------
