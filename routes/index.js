@@ -32,6 +32,7 @@ const funcion = require('./funcion');
 const imagen = require('./imagen');
 const negocio = require('./negocio');
 const objetivo = require('./objetivo');
+const orden_servicio = require('./orden_servicio');
 const parametro = require('./parametro');
 const perfil = require('./perfil');
 const promocion =require('./promocion');
@@ -39,7 +40,9 @@ const red_social = require('./red_social');
 const rol = require('./rol');
 const rol_funcion = require('./rol_funcion');
 const servicio = require('./servicio');
+const servicio_solicitado = require('./servicio_solicitado');
 const sistema = require('./sistema');
+const solicitud = require('./solicitud');
 const suscripcion = require('./suscripcion');
 const tipo_parametro = require('./tipo_parametro');
 const tipo_servicio = require('./tipo_servicio');
@@ -95,6 +98,9 @@ app.use('/',
 	detalle_servicio,
 	dia_laborable,
 	empleado_asignado,
+	solicitud,
+	orden_servicio,
+	servicio_solicitado,
 );
 
 //---- Rutas Privadas ------
