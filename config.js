@@ -8,7 +8,7 @@ module.exports = {
       host     : '127.0.0.1',
       port     : '5432', //5432
       user     : 'postgres',
-      password : '123456',
+      password : 'postgres',
       database : 'mystique',
       charset  : 'utf8'
     }
