@@ -38,6 +38,9 @@ const tipo_servicio = require('./tipo_servicio');
 const titulo_seccion = require('./titulo_seccion');
 const usuario = require('./usuario');
 const vista_clientes = require('./vista_cliente');
+const vista_presupuesto = require('./vista_presupuesto');
+const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
+const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
 const vista_servicios_categoria = require('./vista_servicios_categoria');
 const vista_solicitudes = require('./vista_solicitudes');
 
@@ -83,6 +86,9 @@ app.use('/',
 	reclamos_realizados,
 	vista_solicitudes,
 	vista_servicios_categoria,
+	vista_respuesta_solicitud,
+	vista_presupuesto,
+	vista_respuesta_presupuesto,
 );
 
 //---- Rutas Privadas ------
