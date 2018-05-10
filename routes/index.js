@@ -30,16 +30,28 @@ const especialidad = require('./especialidad');
 const estado = require('./estado');
 const funcion = require('./funcion');
 const garantia = require('./garantia');
+const horario = require('./horario');
+const horario_empleado = require('./horario_empleado');
 const imagen = require('./imagen');
+const incidencia_orden = require('./incidencia_orden');
+const incidencia_servicio = require('./incidencia_servicio');
+const insumo = require('./insumo');
+const insumo_asociado = require('./insumo_asociado');
+const insumo_usado = require('./insumo_usado');
 const negocio = require('./negocio');
+const notificacion = require('./notificacion');
 const objetivo = require('./objetivo');
 const orden_servicio = require('./orden_servicio');
 const parametro = require('./parametro');
 const perfil = require('./perfil');
+const presupuesto = require('./presupuesto');
 const promocion = require('./promocion');
+const proveedor = require('./proveedor');
+const razon_incidencia = require('./razon_incidencia');
 const reclamo = require('./reclamo');
 const red_social = require('./red_social');
 const respuesta_comentario = require('./respuesta_comentario');
+const respuesta_presupuesto = require('./respuesta_presupuesto');
 const respuesta_reclamo = require('./respuesta_reclamo');
 const respuesta_solicitud = require('./respuesta_solicitud');
 const rol = require('./rol');
@@ -113,6 +125,18 @@ app.use('/',
 	tipo_reclamo,
 	respuesta_comentario,
 	respuesta_reclamo,
+	horario,
+	horario_empleado,
+	incidencia_orden,
+	incidencia_servicio,
+	insumo,
+	insumo_asociado,
+	insumo_usado,
+	notificacion,
+	presupuesto,
+	proveedor,
+	razon_incidencia,
+	respuesta_presupuesto,
 );
 
 //---- Rutas Privadas ------
