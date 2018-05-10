@@ -57,14 +57,24 @@ const respuesta_solicitud = require('./respuesta_solicitud');
 const rol = require('./rol');
 const rol_funcion = require('./rol_funcion');
 const servicio = require('./servicio');
+const servicio_parametro = require('./servicio_parametro');
 const servicio_solicitado = require('./servicio_solicitado');
 const sistema = require('./sistema');
 const solicitud = require('./solicitud');
 const suscripcion = require('./suscripcion');
+const tipo_comentario = require('./tipo_comentario');
+const tipo_incidencia = require('./tipo_incidencia');
+const tipo_insumo = require('./tipo_insumo');
+const tipo_notificacion = require('./tipo_notificacion');
 const tipo_parametro = require('./tipo_parametro');
 const tipo_reclamo = require('./tipo_reclamo');
+const tipo_respuesta_comentario = require('./tipo_respuesta_comentario');
+const tipo_respuesta_presupuesto = require('./tipo_respuesta_presupuesto');
+const tipo_respuesta_reclamo = require('./tipo_respuesta_reclamo');
+const tipo_respuesta_solicitud = require('./tipo_respuesta_solicitud');
 const tipo_servicio = require('./tipo_servicio');
 const titulo_seccion = require('./titulo_seccion');
+const unidad = require('./unidad');
 const usuario = require('./usuario');
 const valor_parametro = require('./valor_parametro');
 
@@ -137,6 +147,16 @@ app.use('/',
 	proveedor,
 	razon_incidencia,
 	respuesta_presupuesto,
+	servicio_parametro,
+	tipo_comentario,
+	tipo_incidencia,
+	tipo_insumo,
+	tipo_notificacion,
+	tipo_respuesta_comentario,
+	tipo_respuesta_presupuesto,
+	tipo_respuesta_reclamo,
+	tipo_respuesta_solicitud,
+	unidad,
 );
 
 //---- Rutas Privadas ------
