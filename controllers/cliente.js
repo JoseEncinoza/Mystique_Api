@@ -44,7 +44,7 @@ exports.findOneDocument = (req,res) => {
 
   let conditions = { id: req.params.id };
 
-  Cliente.forge(conditions).fetch()
+  Cliente.forge(conditions).fetch({ withRelated: ['solicitudes', 'solicitudes.vista_servicio_solicitado'] })
     .then(function(data){
       if(!data) return res.status(404).json({ error : true, data : { message : 'cliente no existe' } });
 
