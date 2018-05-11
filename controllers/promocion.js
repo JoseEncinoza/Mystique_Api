@@ -2,6 +2,7 @@
 'use strict'
 const bcrypt = require("bcryptjs");
 const Promocion = require('../models/promocion');
+const fs = require("fs");
 
 exports.findDocuments = (req,res) => {
   
@@ -17,13 +18,20 @@ exports.findDocuments = (req,res) => {
 
 exports.createDocument = (req,res) => {
 
+  // ----- Extension Imagen -----
+  if(req.files.archivo) {
+    var extension = req.files.archivo.name.split(".").pop();
+  }else{
+    var extension = null;
+  }
+
   let newData = {
     id_servicio:          req.body.id_servicio,
     nombre:               req.body.nombre,
     descripcion:          req.body.descripcion,
     porcentaje_descuento: req.body.porcentaje_descuento,
     precio_promocion:     req.body.precio_promocion,
-    imagen:               req.body.imagen,
+    imagen:               extension,
     fecha_inicio:         req.body.fecha_inicio,
     fecha_fin:            req.body.fecha_fin,
     estatus:              req.body.estatus,
@@ -32,6 +40,9 @@ exports.createDocument = (req,res) => {
 
   Promocion.forge(newData).save()
   .then(function(data){
+    // ----- Guardar Imagen -----
+    if(req.files.archivo) fs.rename(req.files.archivo.path, "files/promocion/"+data.id+"."+extension);
+    
     res.status(200).json({ error: false, data: { message: 'promocion creado' } });
   })
   .catch(function (err) {
@@ -65,13 +76,20 @@ exports.updateDocument = (req,res) => {
     .then(function(promocion){
       if(!promocion) return res.status(404).json({ error : true, data : { message : 'promocion no existe' } });
 
+      // ----- Extension Imagen -----
+      if(req.files.archivo) {
+        var extension = req.files.archivo.name.split(".").pop();
+      }else{
+        var extension = null;
+      }
+
       let updateData = {
         id_servicio:          req.body.id_servicio,
         nombre:               req.body.nombre,
         descripcion:          req.body.descripcion,
         porcentaje_descuento: req.body.porcentaje_descuento,
         precio_promocion:     req.body.precio_promocion,
-        imagen:               req.body.imagen,
+        imagen:               extension,
         fecha_inicio:         req.body.fecha_inicio,
         fecha_fin:            req.body.fecha_fin,
         estatus:              req.body.estatus,
@@ -80,6 +98,9 @@ exports.updateDocument = (req,res) => {
       
       promocion.save(updateData)
         .then(function(data){
+          // ----- Guardar Imagen -----
+          if(req.files.archivo) fs.rename(req.files.archivo.path, "files/promocion/"+data.id+"."+extension);
+          
           res.status(200).json({ error : false, data : { message : 'promocion actualizado'} });
         })
         .catch(function(err){

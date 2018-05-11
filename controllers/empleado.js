@@ -2,6 +2,7 @@
 'use strict'
 const bcrypt = require("bcryptjs");
 const Empleado = require('../models/empleado');
+const fs = require("fs");
 
 exports.findDocuments = (req,res) => {
   
@@ -17,6 +18,13 @@ exports.findDocuments = (req,res) => {
 
 exports.createDocument = (req,res) => {
 
+  // ----- Extension Imagen -----
+  if(req.files.archivo) {
+    var extension = req.files.archivo.name.split(".").pop();
+  }else{
+    var extension = null;
+  }
+
   let newData = {
     nombre:           req.body.nombre,
     apellido:         req.body.apellido,
@@ -28,11 +36,14 @@ exports.createDocument = (req,res) => {
     estatus:          req.body.estatus,
     id_ciudad:        req.body.id_ciudad,
     id_usuario:       req.body.id_usuario,
-    imagen:           req.body.imagen,
+    imagen:           extension,
   }
 
   Empleado.forge(newData).save()
   .then(function(data){
+    // ----- Guardar Imagen -----
+    if(req.files.archivo) fs.rename(req.files.archivo.path, "files/empleado/"+data.id+"."+extension);
+    
     res.status(200).json({ error: false, data: { message: 'empleado creado' } });
   })
   .catch(function (err) {
@@ -66,6 +77,13 @@ exports.updateDocument = (req,res) => {
     .then(function(empleado){
       if(!empleado) return res.status(404).json({ error : true, data : { message : 'empleado no existe' } });
 
+      // ----- Extension Imagen -----
+      if(req.files.archivo) {
+        var extension = req.files.archivo.name.split(".").pop();
+      }else{
+        var extension = null;
+      }
+
       let updateData = {
         nombre:           req.body.nombre,
         apellido:         req.body.apellido,
@@ -77,11 +95,14 @@ exports.updateDocument = (req,res) => {
         estatus:          req.body.estatus,
         id_ciudad:        req.body.id_ciudad,
         id_usuario:       req.body.id_usuario,
-        imagen:           req.body.imagen,
+        imagen:           extension,
       }
       
       empleado.save(updateData)
         .then(function(data){
+          // ----- Guardar Imagen -----
+          if(req.files.archivo) fs.rename(req.files.archivo.path, "files/empleado/"+data.id+"."+extension);
+
           res.status(200).json({ error : false, data : { message : 'empleado actualizado'} });
         })
         .catch(function(err){

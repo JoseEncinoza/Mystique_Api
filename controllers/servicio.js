@@ -2,6 +2,7 @@
 'use strict'
 const bcrypt = require("bcryptjs");
 const Servicio = require('../models/servicio');
+const fs = require("fs");
 
 exports.findDocuments = (req,res) => {
   
@@ -17,8 +18,15 @@ exports.findDocuments = (req,res) => {
 
 exports.createDocument = (req,res) => {
 
+  // ----- Extension Imagen -----
+  if(req.files.archivo) {
+    var extension = req.files.archivo.name.split(".").pop();
+  }else{
+    var extension = null;
+  }
+
   let newData = {
-    imagen:             req.body.imagen,
+    imagen:             extension,
     id_tipo_servicio:   req.body.id_tipo_servicio,
     nombre:             req.body.nombre,
     precio:             req.body.precio,
@@ -31,6 +39,9 @@ exports.createDocument = (req,res) => {
 
   Servicio.forge(newData).save()
   .then(function(data){
+    // ----- Guardar Imagen -----
+    if(req.files.archivo) fs.rename(req.files.archivo.path, "files/servicio/"+data.id+"."+extension);
+
     res.status(200).json({ error: false, data: { message: 'servicio creado' } });
   })
   .catch(function (err) {
@@ -64,8 +75,15 @@ exports.updateDocument = (req,res) => {
     .then(function(servicio){
       if(!servicio) return res.status(404).json({ error : true, data : { message : 'servicio no existe' } });
 
+      // ----- Extension Imagen -----
+      if(req.files.archivo) {
+        var extension = req.files.archivo.name.split(".").pop();
+      }else{
+        var extension = null;
+      }
+
       let updateData = {
-        imagen:             req.body.imagen,
+        imagen:             extension,
         id_tipo_servicio:   req.body.id_tipo_servicio,
         nombre:             req.body.nombre,
         precio:             req.body.precio,
@@ -78,6 +96,9 @@ exports.updateDocument = (req,res) => {
       
       servicio.save(updateData)
         .then(function(data){
+          // ----- Guardar Imagen -----
+          if(req.files.archivo) fs.rename(req.files.archivo.path, "files/servicio/"+data.id+"."+extension);
+
           res.status(200).json({ error : false, data : { message : 'servicio actualizado'} });
         })
         .catch(function(err){

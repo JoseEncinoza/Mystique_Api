@@ -2,6 +2,7 @@
 'use strict'
 const bcrypt = require("bcryptjs");
 const Negocio = require('../models/negocio');
+const fs = require("fs");
 
 exports.findDocuments = (req,res) => {
   
@@ -17,19 +18,29 @@ exports.findDocuments = (req,res) => {
 
 exports.createDocument = (req,res) => {
 
+  // ----- Extension Imagen -----
+  if(req.files.archivo) {
+    var extension = req.files.archivo.name.split(".").pop();
+  }else{
+    var extension = null;
+  }
+
   let newData = {
     rif:                  req.body.rif,
     nombre:               req.body.nombre,
     hora_inicio_trabajo:  req.body.hora_inicio_trabajo,
     hora_fin_trabajo:     req.body.hora_fin_trabajo,
-    imagen:               req.body.imagen,
+    imagen:               extension,
     estatus:              req.body.estatus,
     id_sistema:           req.body.id_sistema,
-    fecha_creacion:        req.body.fecha_creacion,
+    fecha_creacion:       req.body.fecha_creacion,
   }
 
   Negocio.forge(newData).save()
   .then(function(data){
+    // ----- Guardar Imagen -----
+    if(req.files.archivo) fs.rename(req.files.archivo.path, "files/negocio/"+data.id+"."+extension);
+
     res.status(200).json({ error: false, data: { message: 'negocio creado' } });
   })
   .catch(function (err) {
@@ -63,20 +74,30 @@ exports.updateDocument = (req,res) => {
     .then(function(negocio){
       if(!negocio) return res.status(404).json({ error : true, data : { message : 'negocio no existe' } });
 
+      // ----- Extension Imagen -----
+      if(req.files.archivo) {
+        var extension = req.files.archivo.name.split(".").pop();
+      }else{
+        var extension = null;
+      }
+
       let updateData = {
-    rif:                  req.body.rif,
-    nombre:               req.body.nombre,
-    hora_inicio_trabajo:  req.body.hora_inicio_trabajo,
-    hora_fin_trabajo:     req.body.hora_fin_trabajo,
-    imagen:               req.body.imagen,
-    estatus:              req.body.estatus,
-    id_sistema:           req.body.id_sistema,
-    fecha_creacion:       req.body.fecha_creacion,
-  }
+        rif:                  req.body.rif,
+        nombre:               req.body.nombre,
+        hora_inicio_trabajo:  req.body.hora_inicio_trabajo,
+        hora_fin_trabajo:     req.body.hora_fin_trabajo,
+        imagen:               extension,
+        estatus:              req.body.estatus,
+        id_sistema:           req.body.id_sistema,
+        fecha_creacion:       req.body.fecha_creacion,
+      }
 
       
       negocio.save(updateData)
         .then(function(data){
+          // ----- Guardar Imagen -----
+          if(req.files.archivo) fs.rename(req.files.archivo.path, "files/negocio/"+data.id+"."+extension);
+          
           res.status(200).json({ error : false, data : { message : 'negocio actualizado'} });
         })
         .catch(function(err){

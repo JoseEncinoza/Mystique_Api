@@ -2,6 +2,7 @@
 'use strict'
 const bcrypt = require("bcryptjs");
 const Sistema = require('../models/sistema');
+const fs = require("fs");
 
 exports.findDocuments = (req,res) => {
   
@@ -17,8 +18,15 @@ exports.findDocuments = (req,res) => {
 
 exports.createDocument = (req,res) => {
 
+  // ----- Extension Imagen -----
+  if(req.files.archivo) {
+    var extension = req.files.archivo.name.split(".").pop();
+  }else{
+    var extension = null;
+  }
+
   let newData = {
-    imagen:            req.body.imagen,
+    imagen:            extension,
     estatus:           req.body.estatus,
     nombre:            req.body.nombre,
     fecha_creacion:    req.body.fecha_creacion,
@@ -26,6 +34,9 @@ exports.createDocument = (req,res) => {
 
   Sistema.forge(newData).save()
   .then(function(data){
+    // ----- Guardar Imagen -----
+    if(req.files.archivo) fs.rename(req.files.archivo.path, "files/sistema/"+data.id+"."+extension);
+    
     res.status(200).json({ error: false, data: { message: 'sistema creado' } });
   })
   .catch(function (err) {
@@ -59,8 +70,15 @@ exports.updateDocument = (req,res) => {
     .then(function(sistema){
       if(!sistema) return res.status(404).json({ error : true, data : { message : 'sistema no existe' } });
 
+      // ----- Extension Imagen -----
+      if(req.files.archivo) {
+        var extension = req.files.archivo.name.split(".").pop();
+      }else{
+        var extension = null;
+      }
+
       let updateData = {
-        imagen:            req.body.imagen,
+        imagen:            extension,
         estatus:           req.body.estatus,
         nombre:            req.body.nombre,
         fecha_creacion:    req.body.fecha_creacion,
@@ -68,6 +86,9 @@ exports.updateDocument = (req,res) => {
       
       sistema.save(updateData)
         .then(function(data){
+          // ----- Guardar Imagen -----
+          if(req.files.archivo) fs.rename(req.files.archivo.path, "files/sistema/"+data.id+"."+extension);
+          
           res.status(200).json({ error : false, data : { message : 'sistema actualizado'} });
         })
         .catch(function(err){
