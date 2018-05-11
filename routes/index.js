@@ -14,6 +14,9 @@ const categoria_parametro = require('./categoria_parametro');
 const categoria_servicio = require('./categoria_servicio');
 const ciudad = require('./ciudad');
 const cliente = require('./cliente');
+const cliente_comentarios = require('./cliente_comentarios');
+const cliente_perfil = require('./cliente_perfil');
+const cliente_reclamos = require('./cliente_reclamos');
 const cliente_solicitudes = require('./cliente_solicitudes');
 const comentario = require('./comentario');
 const consejo = require('./consejo');
@@ -40,6 +43,7 @@ const titulo_seccion = require('./titulo_seccion');
 const usuario = require('./usuario');
 const vista_clientes = require('./vista_cliente');
 const v_comentarios = require('./v_comentarios');
+const v_perfil = require ('./v_perfil')
 const vista_presupuesto = require('./vista_presupuesto');
 const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
 const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
@@ -93,6 +97,10 @@ app.use('/',
 	vista_respuesta_presupuesto,
 	v_comentarios,
 	cliente_solicitudes,
+	cliente_comentarios,
+	cliente_reclamos,
+	v_perfil,
+	cliente_perfil,
 );
 
 //---- Rutas Privadas ------

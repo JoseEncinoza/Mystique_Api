@@ -1,10 +1,10 @@
 'use strict' //de uso estricto para el servidor
-const v_comentarios = require('../models/v_comentarios');
+const v_perfil = require('../models/v_perfil');
 
 //next para encadenar a otra funcion
-function findFComentarios (req,res, next) {
+function findPerfiles (req,res, next) {
   
-  v_comentarios.forge().fetchAll()
+  v_perfil.forge().fetchAll()
   .then(function(data){
   	 if(!data) return res.status(404).json({ error : true, data : { message : 'no hay datos...' } });
     res.status(200).json({ error : false, data : data });
@@ -15,11 +15,11 @@ function findFComentarios (req,res, next) {
 
 }
 
-function findOneComentario (req,res) {
+function findOnePerfil (req,res) {
 
   let conditions = { id_cliente: req.params.id };
 
-  v_comentarios.forge(conditions).fetchAll()
+  v_perfil.forge(conditions).fetchAll()
     .then(function(data){
       if(!data) return res.status(404).json({ error : true, data : { message : 'no hay datos...' } });
 
@@ -33,6 +33,6 @@ function findOneComentario (req,res) {
 }
 
 module.exports= { 
-   findFComentarios,
-   findOneComentario  
+   findPerfiles,
+   findOnePerfil  
 }
