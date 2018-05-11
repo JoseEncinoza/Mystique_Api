@@ -5,6 +5,7 @@ const auth = require('../middlewares/auth');
 
 //---- GESTIONES ------
 const gestion_solicitud = require('./gestion_solicitud');
+const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
 //----TABLAS BASICAS------
 const agenda = require('./agenda');
@@ -161,6 +162,7 @@ app.use('/',
 	unidad,
 	//---- Gestiones ----
 	gestion_solicitud,
+	gestion_tipo_parametro,
 );
 
 //---- Rutas Privadas ------

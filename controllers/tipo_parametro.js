@@ -18,16 +18,11 @@ exports.findDocuments = (req,res) => {
 exports.createDocument = (req,res) => {
 
   let newData = {
-    nombre:             req.body.nombre,
-    apellido:           req.body.apellido,
-    cedula:             req.body.cedula,
-    telefono:           req.body.telefono,
-    direccion:          req.body.direccion,
-    id_ciudad:          req.body.id_ciudad,
-    fecha_nacimiento:   req.body.fecha_nacimiento,
-    tipo_cliente:       req.body.tipo_cliente,
-    estatus:            req.body.estatus,
-    id_usuario:         req.body.id_usuario,
+    nombre:              req.body.nombre,
+    descripcion:         req.body.descripcion,
+    estatus:             req.body.estatus,
+    fecha_creacion:      req.body.fecha_creacion,
+    clasificacion:       req.body.clasificacion,
   }
 
   Tipo_parametro.forge(newData).save()
@@ -66,16 +61,11 @@ exports.updateDocument = (req,res) => {
       if(!tipo_parametro) return res.status(404).json({ error : true, data : { message : 'tipo_parametro no existe' } });
 
       let updateData = {
-        nombre:             req.body.nombre,
-        apellido:           req.body.apellido,
-        cedula:             req.body.cedula,
-        telefono:           req.body.telefono,
-        direccion:          req.body.direccion,
-        id_ciudad:          req.body.id_ciudad,
-        fecha_nacimiento:   req.body.fecha_nacimiento,
-        tipo_cliente:       req.body.tipo_cliente,
-        estatus:            req.body.estatus,
-        id_usuario:         req.body.id_usuario,
+        nombre:              req.body.nombre,
+        descripcion:         req.body.descripcion,
+        estatus:             req.body.estatus,
+        fecha_creacion:      req.body.fecha_creacion,
+        clasificacion:       req.body.clasificacion,
       }
       
       tipo_parametro.save(updateData)

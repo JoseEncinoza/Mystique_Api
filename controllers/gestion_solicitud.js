@@ -3,26 +3,26 @@
 const Solicitud = require('../models/solicitud');
 const Servicio_solicitado = require('../models/servicio_solicitado');
 
-exports.createDocument = (req,res) => {
+exports.agregar = (req,res) => {
 
-  let newData = {
+  let newSolicitud = {
     id_cliente:         req.body.id_cliente,
     id_promocion:       req.body.id_promocion,
   }
 
-  Solicitud.forge(newData).save()
+  Solicitud.forge(newSolicitud).save()
   .then(function(solicitud){
 
         if(req.body.servicio){
 
           for (var i = 0; i < req.body.servicio.length; i++) {
 
-            let newSelec = {
+            let newSerSol = {
               id_servicio:        req.body.servicio[i],
               id_solicitud:       solicitud.id,
             }
 
-            Servicio_solicitado.forge(newSelec).save()
+            Servicio_solicitado.forge(newSerSol).save()
             .then(function(ser){
                 console.log('Servicio_solicitado guardado')
             })
