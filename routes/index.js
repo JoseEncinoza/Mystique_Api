@@ -14,6 +14,7 @@ const categoria_parametro = require('./categoria_parametro');
 const categoria_servicio = require('./categoria_servicio');
 const ciudad = require('./ciudad');
 const cliente = require('./cliente');
+const cliente_solicitudes = require('./cliente_solicitudes');
 const comentario = require('./comentario');
 const consejo = require('./consejo');
 const contacto_negocio = require('./contacto_negocio');
@@ -91,6 +92,7 @@ app.use('/',
 	vista_presupuesto,
 	vista_respuesta_presupuesto,
 	v_comentarios,
+	cliente_solicitudes,
 );
 
 //---- Rutas Privadas ------
