@@ -3,8 +3,10 @@
 const express = require('express');
 const auth = require('../middlewares/auth');
 
-//----routes------
+//---- GESTIONES ------
+const gestion_solicitud = require('./gestion_solicitud');
 
+//----TABLAS BASICAS------
 const agenda = require('./agenda');
 const auditoria = require('./auditoria');
 const bloque = require('./bloque');
@@ -85,7 +87,7 @@ const app = express();
 //---- Rutas Publicas ------
 app.use('/',
 	suscripcion,
-	//---------
+	//---- Tablas Basicas ----
 	usuario,
 	cliente,
 	negocio,
@@ -157,6 +159,8 @@ app.use('/',
 	tipo_respuesta_reclamo,
 	tipo_respuesta_solicitud,
 	unidad,
+	//---- Gestiones ----
+	gestion_solicitud,
 );
 
 //---- Rutas Privadas ------
