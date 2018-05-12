@@ -8,6 +8,7 @@ const Cliente = require('../models/cliente');
 const Perfil = require('../models/perfil');
 const jwt = require('../services/jwt');
 const mailer = require('../services/mailer');
+const moment = require('moment')
 
 //----signup------  
 function signUp(req,res) {
@@ -21,8 +22,6 @@ function signUp(req,res) {
 	    correo:         req.body.correo,
 	    contrasenia:    hash,
 	    ultimo_acceso:  null,
-	    fecha_creacion: req.body.fecha_creacion,
-	    estatus:        'A',
 	  }
 
   	Usuario.forge(newUser).save()
@@ -36,14 +35,12 @@ function signUp(req,res) {
 		    direccion:          req.body.direccion,
 		    id_ciudad:          req.body.id_ciudad,
 		    fecha_nacimiento:   req.body.fecha_nacimiento,
-		    tipo_cliente:       'p',
-		    estatus:            'A',
 		    id_usuario:         usuario.id,
 		}
 
 		Cliente.forge(newClient).save()
 		.then(function(cliente){
-
+			console.log(req.body.perfil)
 			if(req.body.perfil){
 
 				for (var i = 0; i < req.body.perfil.length; i++) {
@@ -91,7 +88,19 @@ function signIn(req,res) {
         
         let isPassword = bcrypt.compareSync(req.body.contrasenia, usuario.get("contrasenia"))
 		if(isPassword){
-			res.status(200).send({ error: false, data: { message:"Te has logueado de forma exitosa", token: jwt.createToken(usuario), id: usuario.get("id") } })
+
+			let updateData = {
+           		ultimo_acceso:  moment().format(),
+      		}
+
+			usuario.save(updateData)
+			.then(function(usuario) {
+				res.status(200).send({ error: false, data: { message:"Te has logueado de forma exitosa", token: jwt.createToken(usuario), id: usuario.get("id") } })
+			})
+			.catch(function(err) {
+			   res.status(500).json({ error : false, data : {message : err.message} });
+			})
+
 		}else{
 			res.status(404).send({ error: true, data: {message: "La contraseña es incorrecta"} })
 		}
