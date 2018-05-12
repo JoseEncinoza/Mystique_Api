@@ -12,6 +12,10 @@ const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
 //---- Vistas ------
 const vista_comentario = require('./vista_comentario');
+const vista_reclamo = require('./vista_reclamo');
+const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
+const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
+const vista_servicio_categoria = require('./vista_servicio_categoria');
 const vista_servicio_solicitado = require('./vista_servicio_solicitado');
 const vista_solicitud = require('./vista_solicitud');
 
@@ -178,6 +182,10 @@ app.use('/',
 	vista_comentario,
 	vista_solicitud,
 	vista_servicio_solicitado,
+	vista_reclamo,
+	vista_respuesta_presupuesto,
+	vista_respuesta_solicitud,
+	vista_servicio_categoria,
 );
 
 //---- Rutas Privadas ------
