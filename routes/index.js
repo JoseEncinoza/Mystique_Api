@@ -4,6 +4,9 @@ const express = require('express');
 const auth = require('../middlewares/auth');
 
 //---- GESTIONES ------
+const gestion_consejo = require('./gestion_consejo');
+const gestion_promocion = require('./gestion_promocion');
+const gestion_servicio = require('./gestion_servicio');
 const gestion_solicitud = require('./gestion_solicitud');
 const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
@@ -163,6 +166,9 @@ app.use('/',
 	//---- Gestiones ----
 	gestion_solicitud,
 	gestion_tipo_parametro,
+	gestion_promocion,
+	gestion_servicio,
+	gestion_consejo,
 );
 
 //---- Rutas Privadas ------
