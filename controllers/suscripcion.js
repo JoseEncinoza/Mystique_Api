@@ -40,7 +40,7 @@ function signUp(req,res) {
 
 		Cliente.forge(newClient).save()
 		.then(function(cliente){
-			console.log(req.body.perfil)
+
 			if(req.body.perfil){
 
 				for (var i = 0; i < req.body.perfil.length; i++) {
