@@ -10,6 +10,11 @@ const gestion_servicio = require('./gestion_servicio');
 const gestion_solicitud = require('./gestion_solicitud');
 const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
+//---- Vistas ------
+const vista_comentario = require('./vista_comentario');
+const vista_servicio_solicitado = require('./vista_servicio_solicitado');
+const vista_solicitud = require('./vista_solicitud');
+
 //----TABLAS BASICAS------
 const agenda = require('./agenda');
 const auditoria = require('./auditoria');
@@ -169,6 +174,10 @@ app.use('/',
 	gestion_promocion,
 	gestion_servicio,
 	gestion_consejo,
+	//---- Vistas ----
+	vista_comentario,
+	vista_solicitud,
+	vista_servicio_solicitado,
 );
 
 //---- Rutas Privadas ------
