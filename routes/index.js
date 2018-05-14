@@ -11,9 +11,21 @@ const gestion_solicitud = require('./gestion_solicitud');
 const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
 //---- Vistas ------
+const vista_cliente_comentario = require('./vista_cliente_comentario');
+const vista_cliente_consejo = require('./vista_cliente_consejo');
+const vista_cliente_orden = require('./vista_cliente_orden');
+const vista_cliente_perfil = require('./vista_cliente_perfil');
+const vista_cliente_promocion = require('./vista_cliente_promocion');
+const vista_cliente_reclamo = require('./vista_cliente_reclamo');
+const vista_cliente_servicio = require('./vista_cliente_servicio');
+const vista_cliente_solicitud = require('./vista_cliente_solicitud');
 const vista_comentario = require('./vista_comentario');
+const vista_detalle_servicios_true = require('./vista_detalle_servicios_true');
 const vista_empleados_categoria = require('./vista_empleados_categoria');
 const vista_especialidad = require('./vista_especialidad');
+const vista_orden = require('./vista_orden');
+const vista_perfil = require('./vista_perfil');
+const vista_presupuesto = require('./vista_presupuesto');
 const vista_reclamo = require('./vista_reclamo');
 const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
 const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
@@ -190,6 +202,18 @@ app.use('/',
 	vista_servicio_categoria,
 	vista_empleados_categoria,
 	vista_especialidad,
+	vista_cliente_consejo,
+	vista_cliente_servicio,
+	vista_cliente_promocion,
+	vista_detalle_servicios_true,
+	vista_perfil,
+	vista_presupuesto,
+	vista_orden,
+	vista_cliente_comentario,
+	vista_cliente_perfil,
+	vista_cliente_reclamo,
+	vista_cliente_solicitud,
+	vista_cliente_orden,
 );
 
 //---- Rutas Privadas ------

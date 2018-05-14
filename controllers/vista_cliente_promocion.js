@@ -1,11 +1,11 @@
 //----dependencias------  
 'use strict'
 const bcrypt = require("bcryptjs");
-const Vista_solicitud = require('../models/vista_solicitud');
+const Vista_cliente_promocion = require('../models/vista_cliente_promocion');
 
 exports.findDocuments = (req,res) => {
   
-  Vista_solicitud.forge().fetchAll({ withRelated: ['servicios_solicitados'] })
+  Vista_cliente_promocion.forge().fetchAll()
   .then(function(data){
     res.status(200).json({ error : false, data : data.toJSON() });
   })
@@ -17,11 +17,11 @@ exports.findDocuments = (req,res) => {
 
 exports.findOneDocument = (req,res) => {
 
-  let conditions = { id: req.params.id };
+  let conditions = { promocion: req.params.id };
 
-  Vista_solicitud.forge(conditions).fetch({ withRelated: ['servicios_solicitados'] })
+  Vista_cliente_promocion.forge(conditions).fetch()
     .then(function(data){
-      if(!data) return res.status(404).json({ error : true, data : { message : 'vista_solicitud no existe' } });
+      if(!data) return res.status(404).json({ error : true, data : { message : 'vista_cliente_promocion no existe' } });
 
       res.status(200).json({ error : false, data : data.toJSON() })
 
