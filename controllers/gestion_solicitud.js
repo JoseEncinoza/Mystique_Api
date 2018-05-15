@@ -8,6 +8,9 @@ exports.agregar = (req,res) => {
   let newSolicitud = {
     id_cliente:         req.body.id_cliente,
     id_promocion:       req.body.id_promocion,
+    estado:             req.body.estado,
+    empleado:           req.body.empleado,
+    sexo:               req.body.sexo,
   }
 
   Solicitud.forge(newSolicitud).save()
