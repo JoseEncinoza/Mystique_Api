@@ -1,0 +1,1 @@
+﻿SET DATESTYLE TO 'European';

@@ -1,7 +1,7 @@
 CREATE OR REPLACE VIEW public.vista_servicio_solicitado AS 
  SELECT a.id,
     a.id_servicio,
-    d.id AS solicitud,
+    d.id AS id_solicitud,
     b.nombre AS nombre_servicio,
     c.nombre AS tipo_servicio
    FROM servicio_solicitado a

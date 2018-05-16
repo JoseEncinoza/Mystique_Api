@@ -6,8 +6,7 @@
            FROM servicio_solicitado c
           WHERE c.id_solicitud = a.id) AS cantidad_servicios,
 	    a.sexo,
-	    a.empleado_pelu,
-	    a.empleado_maqui,
+	    a.empleado,
 	    a.estado,
 	    b.nombre,
 	    b.apellido

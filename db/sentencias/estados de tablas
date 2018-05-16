@@ -1,0 +1,13 @@
+solicitud
+
+Pendiente --> la solicitud se realizo en movil falta responder
+Espera --> la solicitud se aprobo en intranet falta aprobacion de movil
+Denegado --> la solicitud se denego en intranet
+Aprobado --> la solicitud se aprobo en movil
+Rechazdo --> la soliitud se reachazo al rechazar el presupuesto en movil.
+
+
+Presupuesto 
+
+Aprobado -->
+Rechazado -->
