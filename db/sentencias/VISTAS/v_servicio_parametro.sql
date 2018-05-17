@@ -1,4 +1,4 @@
-﻿CREATE VIEW v_servio_parametro AS
+﻿CREATE VIEW v_servicio_parametro AS
 SELECT a.id,
        a.id_servicio,
        a.id_valor_parametro,
