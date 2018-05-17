@@ -4,6 +4,7 @@ const express = require('express');
 const auth = require('../middlewares/auth');
 
 //---- GESTIONES ------
+const gestion_calificacion = require('./gestion_calificacion');
 const gestion_consejo = require('./gestion_consejo');
 const gestion_promocion = require('./gestion_promocion');
 const gestion_servicio = require('./gestion_servicio');
@@ -199,6 +200,7 @@ app.use('/',
 	gestion_promocion,
 	gestion_servicio,
 	gestion_consejo,
+	gestion_calificacion,
 	//---- Vistas ----
 	vista_comentario,
 	vista_solicitud,
