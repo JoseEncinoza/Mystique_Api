@@ -13,6 +13,7 @@ const gestion_tipo_parametro = require('./gestion_tipo_parametro');
 
 //---- Vistas ------
 const vista_agendas = require('./vista_agendas');
+const vista_calificacion_orden = require('./vista_calificacion_orden');
 const vista_cliente_comentario = require('./vista_cliente_comentario');
 const vista_cliente_consejo = require('./vista_cliente_consejo');
 const vista_cliente_orden = require('./vista_cliente_orden');
@@ -24,21 +25,30 @@ const vista_cliente_solicitud = require('./vista_cliente_solicitud');
 const vista_comentario = require('./vista_comentario');
 const vista_detalle_consejo = require('./vista_detalle_consejo');
 const vista_detalle_promocion = require('./vista_detalle_promocion');
+const vista_detalle_proveedor = require('./vista_detalle_proveedor');
 const vista_detalle_servicios_true = require('./vista_detalle_servicios_true');
 const vista_empleados_categoria = require('./vista_empleados_categoria');
 const vista_especialidad = require('./vista_especialidad');
+const vista_incidencia_de_orden = require('./vista_incidencia_de_orden');
+const vista_insumo_asociados = require('./vista_insumo_asociados');
+const vista_insumos = require('./vista_insumos');
 const vista_orden = require('./vista_orden');
 const vista_perfil = require('./vista_perfil');
 const vista_presupuesto = require('./vista_presupuesto');
 const vista_reclamo = require('./vista_reclamo');
 const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
 const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
+const vista_roles = require('./vista_roles');
 const vista_servicio_categoria = require('./vista_servicio_categoria');
+const vista_servicio_con_incidencia = require('./vista_servicio_con_incidencia');
 const vista_servicio_parametro = require('./vista_servicio_parametro');
 const vista_servicio_solicitado = require('./vista_servicio_solicitado');
+const vista_servicios_calificados = require('./vista_servicios_calificados');
+const vista_servicios_con_garantia = require('./vista_servicios_con_garantia');
 const vista_solicitud = require('./vista_solicitud');
 const vista_todas_promociones = require('./vista_todas_promociones');
 const vista_todos_consejos = require('./vista_todos_consejos');
+const vista_todos_servicio_garantia = require('./vista_todos_servicio_garantia');
 const vista_todos_servicios = require('./vista_todos_servicios');
 
 //----TABLAS BASICAS------
@@ -230,6 +240,16 @@ app.use('/',
 	vista_todas_promociones,
 	vista_todos_consejos,
 	vista_todos_servicios,
+	vista_calificacion_orden,
+	vista_detalle_proveedor,
+	vista_incidencia_de_orden,
+	vista_insumo_asociados,
+	vista_insumos,
+	vista_roles,
+	vista_servicio_con_incidencia,
+	vista_servicios_calificados,
+	vista_servicios_con_garantia,
+	vista_todos_servicio_garantia,
 );
 
 //---- Rutas Privadas ------
