@@ -28,7 +28,7 @@ exports.agregar = (req,res) => {
   .then(function(promocion){
 
         // ----- Guardar Imagen -----
-        if(req.files.archivo) fs.rename(req.files.archivo.path, "files/promocion/"+data.id+"."+extension);
+        if(req.files.archivo) fs.rename(req.files.archivo.path, "files/promocion/"+promocion.id+"."+extension);
 
         if(req.body.valor_parametro){
 
