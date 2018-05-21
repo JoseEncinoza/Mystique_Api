@@ -19,6 +19,7 @@ exports.agregar = (req,res) => {
     imagen:          extension,
     autor:           req.body.autor,
     id_sistema:      req.body.id_sistema,
+    visible:         req.body.visible
   }
 
   Consejo.forge(newConsejo).save()
