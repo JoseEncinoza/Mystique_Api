@@ -32,11 +32,13 @@ exports.createDocument = (req,res) => {
     telefono:         req.body.telefono,
     direccion:        req.body.direccion,
     fecha_nacimiento: req.body.fecha_nacimiento,
-    fecha_creacion:   req.body.fecha_creacion,
     estatus:          req.body.estatus,
     id_ciudad:        req.body.id_ciudad,
     id_usuario:       req.body.id_usuario,
     imagen:           extension,
+    fecha_creacion:   req.body.fecha_creacion,
+    visible:          req.body.visible,
+    sexo:             req.body.sexo,
   }
 
   Empleado.forge(newData).save()
@@ -89,11 +91,13 @@ exports.updateDocument = (req,res) => {
         telefono:         req.body.telefono,
         direccion:        req.body.direccion,
         fecha_nacimiento: req.body.fecha_nacimiento,
-        fecha_creacion:   req.body.fecha_creacion,
         estatus:          req.body.estatus,
         id_ciudad:        req.body.id_ciudad,
         id_usuario:       req.body.id_usuario,
         imagen:           extension,
+        fecha_creacion:   req.body.fecha_creacion,
+        visible:          req.body.visible,
+        sexo:             req.body.sexo,
       }
       
       empleado.save(updateData)
