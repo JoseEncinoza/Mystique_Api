@@ -28,11 +28,12 @@ exports.createDocument = (req,res) => {
   let newData = {
     id_sistema:         req.body.id_sistema,
     imagen:             extension,
-    titulo:             req.body.cedula,
+    titulo:             req.body.titulo,
     descripcion:        req.body.descripcion,
     fecha_creacion:     req.body.fecha_creacion,
     estatus:            req.body.estatus,
     tipo_imagen:        req.body.tipo_imagen,
+    boton:              req.body.boton,
   }
 
   Imagen.forge(newData).save()
@@ -81,11 +82,12 @@ exports.updateDocument = (req,res) => {
       let updateData = {
         id_sistema:         req.body.id_sistema,
         imagen:             extension,
-        titulo:             req.body.cedula,
+        titulo:             req.body.titulo,
         descripcion:        req.body.descripcion,
         fecha_creacion:     req.body.fecha_creacion,
         estatus:            req.body.estatus,
         tipo_imagen:        req.body.tipo_imagen,
+        boton:              req.body.boton,
       }
       
       imagen.save(updateData)
