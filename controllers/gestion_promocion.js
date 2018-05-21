@@ -22,6 +22,8 @@ exports.agregar = (req,res) => {
     imagen:               extension,
     fecha_inicio:         req.body.fecha_inicio,
     fecha_fin:            req.body.fecha_fin,
+    visible:              req.body.visible,
+    estado:               req.body.estado,
   }
 
   Promocion.forge(newPromocion).save()
