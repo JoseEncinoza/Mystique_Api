@@ -1,4 +1,4 @@
-﻿CREATE VIEW v_cliente_promocion AS
+CREATE VIEW v_cliente_promocion AS
 SELECT a.id AS promocion,
        a.id_servicio,
        a.nombre,

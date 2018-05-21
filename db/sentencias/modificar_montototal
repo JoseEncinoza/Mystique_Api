@@ -1,0 +1,55 @@
+ALTER TABLE public.presupuesto
+  DROP COLUMN monto_total;
+ALTER TABLE public.presupuesto
+  ADD COLUMN monto_total real;
+
+ALTER TABLE public.servicio
+  DROP COLUMN precio;
+ALTER TABLE public.servicio
+  ADD COLUMN precio real;
+
+ALTER TABLE public.promocion
+  DROP COLUMN precio_promocion;
+ALTER TABLE public.promocion
+  ADD COLUMN precio_promocion real;
+
+CREATE TABLE public.empleado_solicitado
+(
+   id serial, 
+   id_solicitud integer, 
+   id_empleado integer, 
+   fecha_creacion timestamp without time zone DEFAULT now(), 
+   estatus character(1) DEFAULT 'A', 
+   PRIMARY KEY (id), 
+   FOREIGN KEY (id_solicitud) REFERENCES public.solicitud (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+   FOREIGN KEY (id_empleado) REFERENCES public.empleado (id) ON UPDATE NO ACTION ON DELETE NO ACTION
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+
+
+CREATE VIEW v_solicitudes AS
+ SELECT a.id,
+    a.id_cliente,
+    a.id_promocion,
+    ( SELECT count(1) AS count
+           FROM servicio_solicitado c
+          WHERE c.id_solicitud = a.id) AS cantidad_servicios,
+    a.sexo,
+    ARRAY (SELECT c.id_empleado
+            FROM empleado_solicitado c
+             WHERE c.id_solicitud = a.id AND a.estatus='A'::bpchar ) AS empleado,
+    a.estado,
+    b.nombre,
+    b.apellido
+   FROM solicitud a
+     JOIN cliente b ON a.id_cliente = b.id
+  WHERE a.estatus = 'A'::bpchar;
+
+
+ALTER TABLE public.dia_laborable
+  DROP COLUMN nombre;
+ALTER TABLE public.dia_laborable
+  ADD COLUMN dia date;
