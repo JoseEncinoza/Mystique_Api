@@ -1,6 +1,7 @@
 //----dependencias------  
 'use strict'
 const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars');
 
 function enviarCorreo(correoDestino) {
 
@@ -13,15 +14,21 @@ function enviarCorreo(correoDestino) {
 	  }
 	});
 
-	//---- Configurar Msj ------  
-	const mensaje = "Hola desde nodejs...";
+	//---- Configurar Template ------
+	transporter.use('compile', hbs({
+		viewPath: 'services/mail-template',
+		extName: '.hbs'
+	}));
 
 	//---- Configurar Correo ------  
 	const mailOptions = {
 	  from: 	'joseencinoza07@gmail.com', //cuenta emisor
 	  to: 		correoDestino,     			//cuenta destino
-	  subject: 	'Asunto Del Correo',     	//asunto msj
-	  text: 	mensaje                     //texto msj
+	  subject: 	'Suscripción Mystique',  	//asunto msj
+	  //text: 	mensaje,					//texto msj
+	  //html:  	html,						//html    
+	  template: 'index',
+	  context: {}             
 	};
 
 	//---- Enviar Correo  ------  
