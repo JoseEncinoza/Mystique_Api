@@ -1,0 +1,32 @@
+ALTER TABLE public.consejo
+  ADD COLUMN visible boolean DEFAULT false;
+
+
+
+
+CREATE TABLE public.horario_cita
+(
+   id serial, 
+   id_horario integer, 
+   id_cita integer, 
+   fecha_creacion timestamp without time zone DEFAULT now(), 
+   estatus character DEFAULT 'A', 
+   PRIMARY KEY (id), 
+   FOREIGN KEY (id_cita) REFERENCES public.cita (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+   FOREIGN KEY (id_horario) REFERENCES public.horario (id) ON UPDATE NO ACTION ON DELETE NO ACTION
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+
+ALTER TABLE public.cita
+  ADD COLUMN id_agenda integer;
+ALTER TABLE public.cita
+  ADD FOREIGN KEY (id_agenda) REFERENCES public.agenda (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE public.cita
+  DROP COLUMN fecha_cita;
+
+ALTER TABLE public.agenda
+  DROP COLUMN id_cita;
