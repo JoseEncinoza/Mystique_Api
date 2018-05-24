@@ -19,6 +19,7 @@
     "knex": "^0.14.6",
     "moment": "^2.22.1",
     "nodemailer": "^4.6.4",
+    "nodemailer-express-handlebars": "^3.0.0",
     "pg": "^7.4.1"
   }
 }
