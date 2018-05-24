@@ -21,6 +21,8 @@ exports.createDocument = (req,res) => {
     nombre:         	  req.body.nombre,
     estatus:    		    req.body.estatus,
     id_tipo_parametro: 	req.body.id_tipo_parametro,
+    fecha_creacion:     req.body.fecha_creacion,
+    visible:            req.body.visible,
   }
 
   Parametro.forge(newData).save()
@@ -62,6 +64,8 @@ exports.updateDocument = (req,res) => {
         nombre:             req.body.nombre,
         estatus:            req.body.estatus,
         id_tipo_parametro:  req.body.id_tipo_parametro,
+        fecha_creacion:     req.body.fecha_creacion,
+        visible:            req.body.visible,
       }
       
       parametro.save(updateData)
