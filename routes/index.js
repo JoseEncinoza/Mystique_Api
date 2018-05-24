@@ -27,6 +27,7 @@ const vista_detalle_consejo = require('./vista_detalle_consejo');
 const vista_detalle_promocion = require('./vista_detalle_promocion');
 const vista_detalle_proveedor = require('./vista_detalle_proveedor');
 const vista_detalle_servicios_true = require('./vista_detalle_servicios_true');
+const vista_empleado_asignado = require('./vista_empleado_asignado');
 const vista_empleado_horarios = require('./vista_empleado_horarios');
 const vista_empleados_categoria = require('./vista_empleados_categoria');
 const vista_especialidad = require('./vista_especialidad');
@@ -264,6 +265,7 @@ app.use('/',
 	vista_orden_cita,
 	vista_horario_empleado,
 	vista_empleado_horarios,
+	vista_empleado_asignado
 );
 
 //---- Rutas Privadas ------
