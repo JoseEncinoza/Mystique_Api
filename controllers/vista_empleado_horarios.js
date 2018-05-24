@@ -17,7 +17,7 @@ exports.findDocuments = (req,res) => {
 
 exports.findOneDocument = (req,res) => {
 
-  let conditions = { promocion: req.params.id };
+  let conditions = { id: req.params.id };
 
   Vista_empleado_horarios.forge(conditions).fetch({ withRelated: ['horarios'] })
     .then(function(data){

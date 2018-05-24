@@ -129,6 +129,7 @@ const tipo_servicio = require('./tipo_servicio');
 const titulo_seccion = require('./titulo_seccion');
 const unidad = require('./unidad');
 const usuario = require('./usuario');
+const usuario_cliente = require('./usuario_cliente');
 const valor_parametro = require('./valor_parametro');
 
 
@@ -211,6 +212,7 @@ app.use('/',
 	tipo_respuesta_solicitud,
 	unidad,
 	cita,
+	usuario_cliente,
 	//---- Gestiones ----
 	gestion_solicitud,
 	gestion_tipo_parametro,
