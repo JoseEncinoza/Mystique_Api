@@ -2,7 +2,7 @@
 const Bookshelf = require('../db');
 const Cita = require('./cita');
 const Empleado_asignado = require('./empleado_asignado');
-const Vista_servicio_solicitado = require('./vista_servicio_solicitado');
+const Vista_servicio_solicitud = require('./vista_servicio_solicitud');
 
 const Vista_orden_cita = Bookshelf.Model.extend({
   tableName: 'v_orden',
@@ -13,7 +13,7 @@ const Vista_orden_cita = Bookshelf.Model.extend({
   	return this.hasMany(Empleado_asignado,"id_orden_servicio")
   },
   servicios_solicitados: function(){
-  	return this.hasMany(Vista_servicio_solicitado,"solicitud", "solicitud")
+  	return this.hasMany(Vista_servicio_solicitud,"id_solicitud", "solicitud")
   }
 });
 

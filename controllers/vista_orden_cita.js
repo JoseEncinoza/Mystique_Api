@@ -5,7 +5,7 @@ const Vista_orden_cita = require('../models/vista_orden_cita');
 
 exports.findDocuments = (req,res) => {
   
-  Vista_orden_cita.forge().fetchAll({ withRelated: ['citas','empleados_asignados','servicios_solicitados'] })
+  Vista_orden_cita.forge().fetchAll({ withRelated: ['citas','empleados_asignados','servicios_solicitados.insumos_asociados'] })
   .then(function(data){
     res.status(200).json({ error : false, data : data.toJSON() });
   })
@@ -19,7 +19,7 @@ exports.findOneDocument = (req,res) => {
 
   let conditions = { id: req.params.id };
 
-  Vista_orden_cita.forge(conditions).fetch({ withRelated: ['citas','empleados_asignados','servicios_solicitados'] })
+  Vista_orden_cita.forge(conditions).fetch({ withRelated: ['citas','empleados_asignados','servicios_solicitados.insumos_asociados'] })
     .then(function(data){
       if(!data) return res.status(404).json({ error : true, data : { message : 'vista_orden_cita no existe' } });
 
