@@ -8,7 +8,7 @@ INSERT INTO tipo_insumo (nombre)VALUES
 ('Esponja'),
 ('Iluminador'),
 ('Delineador'),
-('Corrector'),
+('Corrector'), // status=I
 ('Rimel'),
 ('Rubor'),
 ('Depotar'),
@@ -27,4 +27,74 @@ INSERT INTO tipo_insumo (nombre)VALUES
 ('Plancha de cabello'),
 ('Secador'),
 ('Brocha quita pelos'),
-('Paletina');
+('Paletina'),
+('Guante'),
+('Gorro'),
+('Agua oxigenada'),
+('Tinte'),
+('Queratina'),
+('Cirugia capilar');
+
+INSERT INTO insumo (id_tipo_insumo, id_unidad, nombre, cantidad, almacen) VALUES
+(1, 8, 'Base liquida', 50, 50),
+(1, 8, 'Base hidratante con color', 50, 50),
+(1, 8, 'Base de maquillaje en crema', 30, 50),
+(1, 8, 'Base en mousse', 50, 50),
+(1, 8, 'Base de maquillaje en barra', 30, 30),
+(1, 8, 'Base mineral', 20, 20),
+(1, 4, 'Base en polvo', 60, 60),
+(2, 8, 'Corrector blanco', 50, 50),
+(2, 8, 'Corrector verde', 50, 50),
+(2, 8, 'Corrector azul', 50, 50),
+(2, 8, 'Corrector naranja', 50, 50),
+(2, 8, 'Corrector morado', 50, 50),
+(2, 8, 'Corrector salmon', 50, 50),
+(2, 8, 'Corrector amarillo', 50, 50),
+(3, 8, 'Polvo de sol', 20, 20),
+(3, 8, 'Polvo traslucido', 20, 20),
+(3, 8, 'Polvo mineral', 20, 20),
+(3, 8, 'Polvo iluminador', 20, 20),
+(3, 8, 'Polvo de sol', 20, 20),
+(4, 8, 'Sombras en polvo', 20, 200),
+(4, 8, 'Sombras en crema', 20, 200),
+
+(4, 8, 'Sombras en lapiz y creyon', 20, 200),
+
+(4, 8, 'Sombras al agua', 20, 200),
+
+(4, 8, 'Sombras volatiles', 20, 200),
+(5, , 'Pincel Mofeta', 1, 10 ),
+(5, , 'Pincel Maquillaje', 1, 10 ),
+(5, , 'Pincel de polvos', 1, 10 ),
+(5, , 'Pincel corrector', 1, 10 ),
+(5, , 'Pincel biselado', 1, 10 ),
+(5, , 'Pincel sombras', 1, 10 ),
+(5, , 'Pincel biselada', 1, 10 ),
+(5, , 'Pincel kabuhi', 1, 10 ),
+
+(6, 8, 'esponja clasica', 20, 50),
+
+(6, 8, 'esponja de silicona', 20, 50),
+
+(6, 8, 'esponja tipo huevo', 20, 50),
+
+(6, 8, 'esponja ergonomica', 20, 50),
+
+(6, 8, 'esponja biselada', 20, 50),
+
+(6, 8, 'esponja clasica', 20, 50),
+
+(7, 8, 'iluminador liquido', 50,  50),
+(7, 8, 'iluminador en crema', 50,  50),
+(7, 8, 'iluminador liquido', 50,  50),
+(8,8, 'Delineador liquido', 50, 60),
+(8,8, 'Delineador en plumon', 50, 60),
+(8,8, 'Delineador en lapiz', 50, 60),
+(8,8, 'Delineador en gel', 50, 60),
+(8,8, 'Delineador con sombra', 50, 60),
+(10,8, 'Rimel con cepillo en forma de pino', 50, 60),
+(10,8, 'Rimel de plastico', 50, 60),
+(10,8, 'Rimel en curva', 50, 60),
+(10,8, 'Rimel con cepillo triesferico', 50, 60),
+(10,8, 'Rimel con forma de s', 50, 60),
+(11,8, 'Rubor ', 50, 60),
