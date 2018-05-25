@@ -31,3 +31,18 @@ exports.findOneDocument = (req,res) => {
     })
 
 }
+
+exports.buscarPorFecha = (req,res) => {
+
+  var fecha = req.params.fecha;
+  var empleado = req.params.empleado;
+  
+  Vista_horario_empleado.query({where: {dia: fecha, id_empleado: empleado}}).fetchAll()
+  .then(function(data){
+    res.status(200).json({ error : false, data : data.toJSON() });
+  })
+  .catch(function (err) {
+    res.status(500).json({ error: true, data: {message: err.message} });
+  });
+
+}

@@ -12,6 +12,7 @@ const id = ':id'
 //----Rutas------ 
 router.get(`${path}`, controller.findDocuments)
 router.get(`${path}/${id}`,controller.findOneDocument)
+router.get('/vista_horario_fecha/:fecha/:empleado',controller.buscarPorFecha)
 
 
 module.exports = router;
