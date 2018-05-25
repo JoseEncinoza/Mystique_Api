@@ -3,14 +3,14 @@ const Cita = require('../models/cita');
 const Horario_empleado = require('../models/horario_empleado');
 
 exports.agregar = (req,res) => {
-
+  console.log(req.body)
   let newCita = {
     id_orden_servicio:         req.body.id_orden_servicio,
     estado:                    req.body.estado,
     id_agenda:                 req.body.id_agenda,
     hora_inicio:               req.body.hora_inicio,
     hora_fin:                  req.body.hora_fin,
-    bloques_requeridos:        req-body.bloques_requeridos,
+    bloques_requeridos:        req.body.bloques_requeridos,
   }
 
   Cita.forge(newCita).save()
