@@ -7,6 +7,7 @@ const auth = require('../middlewares/auth');
 const gestion_calificacion = require('./gestion_calificacion');
 const gestion_consejo = require('./gestion_consejo');
 const gestion_detalle_servicio = require('./gestion_detalle_servicio');
+const gestion_orden = require('./gestion_orden');
 const gestion_promocion = require('./gestion_promocion');
 const gestion_servicio = require('./gestion_servicio');
 const gestion_solicitud = require('./gestion_solicitud');
@@ -116,6 +117,7 @@ const servicio_parametro = require('./servicio_parametro');
 const servicio_solicitado = require('./servicio_solicitado');
 const sistema = require('./sistema');
 const solicitud = require('./solicitud');
+const solicitud_presupuesto = require('./solicitud_presupuesto');
 const suscripcion = require('./suscripcion');
 const tipo_comentario = require('./tipo_comentario');
 const tipo_incidencia = require('./tipo_incidencia');
@@ -215,6 +217,7 @@ app.use('/',
 	unidad,
 	cita,
 	usuario_cliente,
+	solicitud_presupuesto,
 	//---- Gestiones ----
 	gestion_solicitud,
 	gestion_tipo_parametro,
@@ -223,6 +226,7 @@ app.use('/',
 	gestion_consejo,
 	gestion_calificacion,
 	gestion_detalle_servicio,
+	gestion_orden,
 	//---- Vistas ----
 	vista_comentario,
 	vista_solicitud,
