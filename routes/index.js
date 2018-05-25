@@ -5,6 +5,7 @@ const auth = require('../middlewares/auth');
 
 //---- GESTIONES ------
 const gestion_calificacion = require('./gestion_calificacion');
+const gestion_cita = require('./gestion_cita');
 const gestion_consejo = require('./gestion_consejo');
 const gestion_detalle_servicio = require('./gestion_detalle_servicio');
 const gestion_orden = require('./gestion_orden');
@@ -227,6 +228,7 @@ app.use('/',
 	gestion_calificacion,
 	gestion_detalle_servicio,
 	gestion_orden,
+	gestion_cita,
 	//---- Vistas ----
 	vista_comentario,
 	vista_solicitud,
