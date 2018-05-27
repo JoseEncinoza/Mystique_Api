@@ -9,7 +9,7 @@ module.exports = {
       port     : '5432', //5432
       user     : 'postgres',
       password : 'postgres',
-      database : 'devmystique',
+      database : 'demystique',
       charset  : 'utf8'
     }
   }
