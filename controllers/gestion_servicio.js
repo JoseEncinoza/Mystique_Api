@@ -2,6 +2,7 @@
 'use strict'
 const Servicio = require('../models/servicio');
 const Servicio_parametro = require('../models/servicio_parametro');
+const Insumo_asociado = require('../models/insumo_asociado');
 const fs = require("fs");
 
 exports.agregar = (req,res) => {
@@ -29,6 +30,7 @@ exports.agregar = (req,res) => {
         // ----- Guardar Imagen -----
         if(req.files.archivo) fs.rename(req.files.archivo.path, "files/servicio/"+servicio.id+"."+extension);
 
+        //Valors Parametros
         if(req.body.valor_parametro){
 
           for (var i = 0; i < req.body.valor_parametro.length; i++) {
@@ -41,6 +43,29 @@ exports.agregar = (req,res) => {
             Servicio_parametro.forge(newSerPar).save()
             .then(function(ser){
                 console.log('servicio_parametro guardado')
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+
+          }
+
+        }
+
+        //insumos asociados
+        if(req.body.insumo_asociado){
+
+          for (var i = 0; i < req.body.insumo_asociado.length; i++) {
+            
+            let newIns = {
+              id_servicio:        servicio.id,
+              id_insumo:          req.body.insumo_asociado[i].id,
+              cantidad:           req.body.insumo_asociado[i].cantidad,
+            }
+
+            Insumo_asociado.forge(newIns).save()
+            .then(function(ser){
+                console.log('Insumo asociado guardado')
             })
             .catch(function (err) {
                 console.log(err);
