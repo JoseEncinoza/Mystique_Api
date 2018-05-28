@@ -19,7 +19,7 @@ exports.findOneDocument = (req,res) => {
 
   let conditions = { id: req.params.id };
 
-  Vista_empleados_categoria.forge(conditions).fetch()
+  Vista_empleados_categoria.forge(conditions).fetch({ withRelated: ['empleados'] })
     .then(function(data){
       if(!data) return res.status(404).json({ error : true, data : { message : 'categoria_servicio no existe' } });
 
