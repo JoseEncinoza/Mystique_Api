@@ -1,7 +1,14 @@
-INSERT INTO consejo(titulo, descripcion, imagen, autor, id_sistema)VALUES
+INSERT INTO consejo(titulo, descripcion,  autor, id_sistema)VALUES
 ('Como aplicar el rubor segun tu rostro', 'ROSTRO OVALADO: Sonríe para que puedas ver dónde se dibujan tus pómulos. Aplica rubor desde el centro de tus mejillas y difumina hacia la línea del cabello, justo debajo de las sienes.
     ROSTRO CUADRADO: En este tipo de rostro aplicaremos el rubor en las mejillas de forma horizontal. Desde el centro de las mejillas hacia las sienes. Así crearás equilibrio.
     ROSTRO REDONDO: Aplica el rubor con la ayuda de la brocha a lo largo de los pómulos, hacia las sienes en forma de triangular. Evita maquillar el centro de las mejillas o muy cerca de la nariz.
     ROSTRO ALARGADO: Para crear la ilusión de un rostro más ancho, vamos a aplicar el rubor desde inicio de las mejillas hacia las orejas de forma horizontal. Ayúdate de la brocha para difuminar.', 'png', 'Veronica Uzcategui', 3),
-('')
+('Deten la caida del cabello', 'Si eres como la inmensa mayoría de los hombres, cuanto más años tienes, más cabello pierdes. Hay algunos hombres genéticamente dotados a los que no les pasa, pero la realidad es que casi todos pasamos por este proceso (incluidas las mujeres) y es algo con lo que tienes que lidiar. Por ello, lo mejor es ir bien preparado. Si quiere prevenir y detener la caída del cabello, necesitas invertir algo de dinero. Muchos estudios demuestran que una combinación de Minoxidil y Propecia (Finasterida) es efectiva contra el patrón de la calvicie masculina. Por ello, seguimos con más consejos de belleza:
+
+    La Propecia sólo actúa en el caso de un tipo determinado de pérdida de pelo, la alopecia androgenética o calvicie común del varón. Además, según el propio laboratorio investigador, nada más estimuló el crecimiento del pelo en un 66% de los pacientes tratados aunque asegura que detuvo la caída en un 83% de los mismos. Además, para poder comprar Finasterida (principio activo de la Propecia) vas a necesitar una receta de tu médico de cabecera.
+
+    El Minoxidil es un medicamento que se usa para estimular el crecimiento del cabello y frenar la caída del pelo que, por el contrario, sí que se puede comprar sin receta médica. Para reducir el coste, considera comprarlo a granel (puedes obtener un suministro de 6 meses en Amazon a un precio razonable).
+
+    Algunos hombres aseguran que la biotina (vitamina B7) ayuda a prevenir la caída del cabello y estimula el crecimiento. Te recomendamos investigar más sobre este tema y hablarlo con tu médico.', 'Veronica Uzcategui', 1),
+('Mantener tu barba', 'Te aconsejamos afeitarte al salir de la ducha. Así los poros están abiertos y el vello se ablanda. De esta manera es más sencillo afeitarte. Eso sí, si también utilizas un gel de afeitar untuoso que proteja tu epidermis ¡mejor! Una vez hayas acabado de afeitarte, lávate la cara con agua fría para eliminar los restos de gel y cerrar de nuevo los poros. Después, aplica siempre un loción aftershave sin alcohol e hidratante para calmar la piel.', 'Veronica Uzcategui', 1)
 ;
