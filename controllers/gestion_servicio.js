@@ -59,8 +59,7 @@ exports.agregar = (req,res) => {
             
             let newIns = {
               id_servicio:        servicio.id,
-              id_insumo:          req.body.insumo_asociado[i].id,
-              cantidad:           req.body.insumo_asociado[i].cantidad,
+              id_insumo:          req.body.insumo_asociado[i],
             }
 
             Insumo_asociado.forge(newIns).save()
