@@ -63,6 +63,7 @@ const vista_todas_promociones = require('./vista_todas_promociones');
 const vista_todos_consejos = require('./vista_todos_consejos');
 const vista_todos_servicio_garantia = require('./vista_todos_servicio_garantia');
 const vista_todos_servicios = require('./vista_todos_servicios');
+const vista_usuario_notificaciones = require('./vista_usuario_notificaciones');
 
 //----TABLAS BASICAS------
 const agenda = require('./agenda');
@@ -281,6 +282,7 @@ app.use('/',
 	vista_empleado_horarios,
 	vista_empleado_asignado,
 	vista_notificacion,
+	vista_usuario_notificaciones,
 	//--- Reportes ---
 	reporte_comentario,
 );
