@@ -3,6 +3,9 @@
 const express = require('express');
 const auth = require('../middlewares/auth');
 
+//---- REPORTES -----
+const reporte_comentario = require('./reporte_comentario');
+
 //---- GESTIONES ------
 const gestion_calificacion = require('./gestion_calificacion');
 const gestion_cita = require('./gestion_cita');
@@ -273,7 +276,9 @@ app.use('/',
 	vista_orden_cita,
 	vista_horario_empleado,
 	vista_empleado_horarios,
-	vista_empleado_asignado
+	vista_empleado_asignado,
+	//--- Reportes ---
+	reporte_comentario,
 );
 
 //---- Rutas Privadas ------
