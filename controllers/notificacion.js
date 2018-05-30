@@ -19,10 +19,10 @@ exports.createDocument = (req,res) => {
 
   let newData = {
     id_tipo_notificacion: req.body.id_tipo_notificacion,
-    nombre:               req.body.nombre,
-    descripcion:          req.body.descripcion,
     fecha_creacion:       req.body.fecha_creacion,
     estatus:              req.body.estatus,
+    id_usuario:           req.body.id_usuario,
+    id_registro:          req.body.id_registro,
   }
 
   Notificacion.forge(newData).save()
@@ -62,10 +62,10 @@ exports.updateDocument = (req,res) => {
 
       let updateData = {
         id_tipo_notificacion: req.body.id_tipo_notificacion,
-        nombre:               req.body.nombre,
-        descripcion:          req.body.descripcion,
         fecha_creacion:       req.body.fecha_creacion,
         estatus:              req.body.estatus,
+        id_usuario:           req.body.id_usuario,
+        id_registro:          req.body.id_registro,
       }
       
       notificacion.save(updateData)

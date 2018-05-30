@@ -41,6 +41,7 @@ const vista_horario_empleado = require('./vista_horario_empleado');
 const vista_incidencia_de_orden = require('./vista_incidencia_de_orden');
 const vista_insumo_asociados = require('./vista_insumo_asociados');
 const vista_insumos = require('./vista_insumos');
+const vista_notificacion = require('./vista_notificacion');
 const vista_orden = require('./vista_orden');
 const vista_orden_cita = require('./vista_orden_cita');
 const vista_perfil = require('./vista_perfil');
@@ -114,6 +115,7 @@ const respuesta_comentario = require('./respuesta_comentario');
 const respuesta_presupuesto = require('./respuesta_presupuesto');
 const respuesta_reclamo = require('./respuesta_reclamo');
 const respuesta_solicitud = require('./respuesta_solicitud');
+const respuesta_solicitud_foraneo = require('./respuesta_solicitud_foraneo');
 const rol = require('./rol');
 const rol_funcion = require('./rol_funcion');
 const servicio = require('./servicio');
@@ -222,6 +224,7 @@ app.use('/',
 	cita,
 	usuario_cliente,
 	solicitud_presupuesto,
+	respuesta_solicitud_foraneo,
 	//---- Gestiones ----
 	gestion_solicitud,
 	gestion_tipo_parametro,
@@ -277,6 +280,7 @@ app.use('/',
 	vista_horario_empleado,
 	vista_empleado_horarios,
 	vista_empleado_asignado,
+	vista_notificacion,
 	//--- Reportes ---
 	reporte_comentario,
 );
