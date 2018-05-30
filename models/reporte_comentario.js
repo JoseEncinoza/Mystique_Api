@@ -1,11 +1,11 @@
 //---- dependencias ------
 const Bookshelf = require('../db');
-const Respues_comentario = require('./respuesta_comentario')
+const Vista_respuesta_comentario = require('./vista_respuesta_comentario')
 
 const Reporte_comentario = Bookshelf.Model.extend({
-  tableName: 'comentario',
+  tableName: 'v_comentarios',
   respuesta_comentario: function() {
-    return this.hasOne(Respues_comentario, 'id_comentario', 'id');
+    return this.hasOne(Vista_respuesta_comentario, 'id_comentario', 'id');
   }
 });
 

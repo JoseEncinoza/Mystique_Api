@@ -12,6 +12,9 @@ exports.reporte = (req,res) => {
   var arr2 = [];
   var arr3 = [];
 
+  //query
+  var query = {};
+
   //parametro fechas
   if(req.query.fecha_inicio){
     var fecha_inicio = req.query.fecha_inicio;
@@ -26,13 +29,9 @@ exports.reporte = (req,res) => {
   }
 
   //parametro tipo comentario
-  if(req.query.tipo_comentario){
-    var where = { where: { id_tipo_comentario: req.query.tipo_comentario} }
-  }else{
-    var where = {}
-  }
+  if(req.query.tipo_comentario) query.id_tipo_comentario = req.query.tipo_comentario;
   
-  Reporte_comentario.query(where).query(function(qb) { qb.whereBetween('fecha_creacion', [fecha_inicio, fecha_fin+' 23:59']);}).fetchAll({ withRelated: ['respuesta_comentario'] })
+  Reporte_comentario.query( { where: query } ).query(function(qb) { qb.whereBetween('fecha_creacion', [fecha_inicio, fecha_fin+' 23:59']);}).fetchAll({ withRelated: ['respuesta_comentario'] })
   .then(function(data){
     
     //parametro respuesta

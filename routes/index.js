@@ -5,6 +5,7 @@ const auth = require('../middlewares/auth');
 
 //---- REPORTES -----
 const reporte_comentario = require('./reporte_comentario');
+const reporte_servicio = require('./reporte_servicio');
 
 //---- GESTIONES ------
 const gestion_calificacion = require('./gestion_calificacion');
@@ -47,6 +48,7 @@ const vista_orden_cita = require('./vista_orden_cita');
 const vista_perfil = require('./vista_perfil');
 const vista_presupuesto = require('./vista_presupuesto');
 const vista_reclamo = require('./vista_reclamo');
+const vista_respuesta_comentario = require('./vista_respuesta_comentario');
 const vista_respuesta_presupuesto = require('./vista_respuesta_presupuesto');
 const vista_respuesta_solicitud = require('./vista_respuesta_solicitud');
 const vista_roles = require('./vista_roles');
@@ -283,8 +285,10 @@ app.use('/',
 	vista_empleado_asignado,
 	vista_notificacion,
 	vista_usuario_notificaciones,
+	vista_respuesta_comentario,
 	//--- Reportes ---
 	reporte_comentario,
+	reporte_servicio,
 );
 
 //---- Rutas Privadas ------
