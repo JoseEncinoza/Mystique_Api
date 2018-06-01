@@ -3,7 +3,7 @@
 const nodemailer = require('nodemailer');
 const hbs = require('nodemailer-express-handlebars');
 
-function enviarCorreo(correoDestino, nombreCliente, apellidoCliente) {
+function enviarCorreo(correoDestino, nombreCliente, apellidoCliente, contrasenia) {
 
     //---- Configurar Cuenta ------  
     const transporter = nodemailer.createTransport({
@@ -31,7 +31,8 @@ function enviarCorreo(correoDestino, nombreCliente, apellidoCliente) {
         context: {
             correo: correoDestino,
             nombre: nombreCliente,
-            apellido: apellidoCliente
+            apellido: apellidoCliente,
+            contrasenia: contrasenia
         }
     };
 

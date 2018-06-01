@@ -63,7 +63,7 @@ function signUp(req,res) {
 
 			}
 			//--- Enviar Correo ---
-			mailer.enviarCorreo(newUser.correo, newClient.nombre, newClient.apellido);
+			mailer.enviarCorreo(newUser.correo, newClient.nombre, newClient.apellido, req.body.contrasenia);
 			//--- Respuesta exitosa ---
 			res.status(200).json({ error: false, data: { message : 'Registro exitoso' } });
 
