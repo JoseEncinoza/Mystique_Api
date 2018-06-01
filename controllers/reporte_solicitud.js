@@ -52,13 +52,9 @@ exports.reporte = (req,res) => {
 
     //parametro sevicio
     for (var i = 0; i < arr2.length; i++) {
-      console.log('---for1---')
-      console.log(i)
       if(req.query.servicio){
 
         for (var j = 0; j < arr2[i].servicios_solicitados.length; j++) {
-          console.log('        ---for2---')
-          console.log(j)
           if(arr2[i].servicios_solicitados[j].id_servicio == req.query.servicio){
             arr3.push(arr2[i]);
             break;
