@@ -5,7 +5,9 @@ const Empleado_asignado = require('../models/empleado_asignado');
 exports.agregar = (req, res) => {
     console.log(req.body)
     let newOrden_sevicio = {
-        id_solicitud: req.body.id_solicitud
+        id_solicitud:       req.body.id_solicitud,
+        id_orden_servicio:  req.body.id_orden_servicio,
+        estado:             req.body.estado
     }
 
     Orden_sevicio.forge(newOrden_sevicio).save()
