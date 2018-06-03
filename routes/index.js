@@ -4,6 +4,7 @@ const express = require('express');
 const auth = require('../middlewares/auth');
 
 //---- REPORTES -----
+const reporte_cita = require('./reporte_cita');
 const reporte_comentario = require('./reporte_comentario');
 const reporte_reclamo = require('./reporte_reclamo');
 const reporte_servicio = require('./reporte_servicio');
@@ -299,6 +300,7 @@ app.use('/',
 	reporte_servicios_solicitados,
 	reporte_servicio_realizado,
 	reporte_reclamo,
+	reporte_cita,
 );
 
 //---- Rutas Privadas ------
