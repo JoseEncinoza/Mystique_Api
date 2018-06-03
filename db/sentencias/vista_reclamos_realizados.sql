@@ -6,6 +6,7 @@ CREATE OR REPLACE VIEW public.vista_reclamos_realizados AS
  SELECT a.id,
     a.descripcion,
     a.fecha_creacion AS registro_reclamo,
+    a.estado,
     b.id_orden_servicio,
     b.id_servicio_solicitado,
     b.fecha_creacion AS dia_atendido,
@@ -28,3 +29,6 @@ CREATE OR REPLACE VIEW public.vista_reclamos_realizados AS
      JOIN cliente h ON g.id_cliente = h.id
      JOIN categoria_servicio i ON e.id_categoria_servicio = i.id
   WHERE a.estatus = 'A'::bpchar;
+
+ALTER TABLE public.vista_reclamos_realizados
+  OWNER TO postgres;
