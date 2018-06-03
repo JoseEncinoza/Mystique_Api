@@ -5,7 +5,7 @@ RETURNS TRIGGER AS  $notificacion_nueva_solicitud$
        INSERT INTO
          notificacion(id_tipo_notificacion,
           id_usuario, id_registro) VALUES(
-          5, (SELECT a.id FROM usuario a, rol b, rol_funcion c
+          3, (SELECT a.id FROM usuario a, rol b, rol_funcion c
             WHERE a.id_rol = b.id AND c.id_rol = a.id_rol AND c.id_funcion=21),
             NEW.id);
             RETURN NULL;
