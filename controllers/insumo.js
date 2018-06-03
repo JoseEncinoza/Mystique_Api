@@ -24,6 +24,7 @@ exports.createDocument = (req,res) => {
     cantidad:           req.body.cantidad,
     fecha_creacion:     req.body.fecha_creacion,
     estatus:            req.body.estatus,
+    almacen:            req.body.almacen,
   }
 
   Insumo.forge(newData).save()
@@ -68,6 +69,7 @@ exports.updateDocument = (req,res) => {
         cantidad:           req.body.cantidad,
         fecha_creacion:     req.body.fecha_creacion,
         estatus:            req.body.estatus,
+        almacen:            req.body.almacen,
       }
       
       insumo.save(updateData)
