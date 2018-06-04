@@ -8,6 +8,7 @@ const reporte_cita = require('./reporte_cita');
 const reporte_comentario = require('./reporte_comentario');
 const reporte_reclamo = require('./reporte_reclamo');
 const reporte_servicio = require('./reporte_servicio');
+const reporte_servicio_calificado = require('./reporte_servicio_calificado');
 const reporte_servicio_realizado = require('./reporte_servicio_realizado');
 const reporte_servicios_solicitados = require('./reporte_servicios_solicitados');
 const reporte_solicitud = require('./reporte_solicitud');
@@ -301,6 +302,7 @@ app.use('/',
 	reporte_servicio_realizado,
 	reporte_reclamo,
 	reporte_cita,
+	reporte_servicio_calificado,
 );
 
 //---- Rutas Privadas ------
