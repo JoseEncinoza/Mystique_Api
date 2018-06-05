@@ -5,7 +5,9 @@ const Vista_solicitud = require('../models/vista_solicitud');
 
 exports.findDocuments = (req,res) => {
   
-  Vista_solicitud.forge().fetchAll({ withRelated: ['servicios_solicitados'] })
+  Vista_solicitud.query(function(qb) {
+    qb.orderBy('fecha_creacion', 'ASC');
+  }).fetchAll({ withRelated: ['servicios_solicitados'] })
   .then(function(data){
     res.status(200).json({ error : false, data : data.toJSON() });
   })
