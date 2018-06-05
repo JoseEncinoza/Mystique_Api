@@ -5,6 +5,7 @@ const auth = require('../middlewares/auth');
 
 //---- REPORTES -----
 const reporte_cita = require('./reporte_cita');
+const reporte_cliente = require('./reporte_cliente');
 const reporte_comentario = require('./reporte_comentario');
 const reporte_promocion = require('./reporte_promocion');
 const reporte_reclamo = require('./reporte_reclamo');
@@ -305,6 +306,7 @@ app.use('/',
 	reporte_cita,
 	reporte_servicio_calificado,
 	reporte_promocion,
+	reporte_cliente,
 );
 
 //---- Rutas Privadas ------
