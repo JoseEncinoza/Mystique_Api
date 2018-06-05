@@ -7,7 +7,22 @@ exports.findDocuments = (req,res) => {
   
   Vista_orden_cita.forge().fetchAll({ withRelated: ['citas.horario_empleado','empleados_asignados','servicios_solicitados.insumos_asociados'] })
   .then(function(data){
-    res.status(200).json({ error : false, data : data.toJSON() });
+
+      var arr = []
+
+      //ordenar descendente
+      arr = data.toJSON().sort(function (a, b) {
+        if (a.citas[0].horario_empleado.dia < b.citas[0].horario_empleado.dia) {
+          return 1;
+        }
+        if (a.citas[0].horario_empleado.dia > b.citas[0].horario_empleado.dia) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+
+    res.status(200).json({ error : false, data : arr });
   })
   .catch(function (err) {
     res.status(500).json({ error: true, data: {message: err.message} });
