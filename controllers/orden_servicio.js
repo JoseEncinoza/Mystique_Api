@@ -22,6 +22,7 @@ exports.createDocument = (req,res) => {
     id_orden_servicio:  req.body.id_orden_servicio,
     fecha_creacion:     req.body.fecha_creacion,
     estatus:            req.body.estatus,
+    estado:             req.body.estado,
   }
 
   Orden_servicio.forge(newData).save()
@@ -64,6 +65,7 @@ exports.updateDocument = (req,res) => {
         id_orden_servicio:  req.body.id_orden_servicio,
         fecha_creacion:     req.body.fecha_creacion,
         estatus:            req.body.estatus,
+        estado:             req.body.estado,
       }
       
       orden_servicio.save(updateData)

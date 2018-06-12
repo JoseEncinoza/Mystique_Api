@@ -23,6 +23,9 @@ exports.createDocument = (req,res) => {
     descripcion:            req.body.descripcion,
     fecha_creacion:         req.body.fecha_creacion,
     estatus:                req.body.estatus,
+    estado:                 req.body.estado,
+    id_orden_servicio:      req.body.id_orden_servicio,
+    id_cliente:             req.body.id_cliente,
   }
 
   Reclamo.forge(newData).save()
@@ -66,6 +69,9 @@ exports.updateDocument = (req,res) => {
         descripcion:            req.body.descripcion,
         fecha_creacion:         req.body.fecha_creacion,
         estatus:                req.body.estatus,
+        estado:                 req.body.estado,
+        id_orden_servicio:      req.body.id_orden_servicio,
+        id_cliente:             req.body.id_cliente,
       }
       
       reclamo.save(updateData)

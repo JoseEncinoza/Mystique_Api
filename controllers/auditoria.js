@@ -4,8 +4,21 @@ const bcrypt = require("bcryptjs");
 const Auditoria = require('../models/auditoria');
 
 exports.findDocuments = (req,res) => {
+
+  //parametro fechas
+  if(req.query.fecha_inicio){
+    var fecha_inicio = req.query.fecha_inicio;
+  }else{
+    var fecha_inicio = '01/01/0001';
+  }
+
+  if(req.query.fecha_fin){
+    var fecha_fin = req.query.fecha_fin;
+  }else{
+    var fecha_fin = '31/12/9999';
+  }
   
-  Auditoria.forge().fetchAll()
+  Auditoria.forge().query(function(qb) { qb.whereBetween('fecha_creacion', [fecha_inicio, fecha_fin+' 23:59']);}).fetchAll()
   .then(function(data){
     res.status(200).json({ error : false, data : data.toJSON() });
   })

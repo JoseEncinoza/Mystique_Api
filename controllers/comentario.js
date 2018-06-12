@@ -23,6 +23,7 @@ exports.createDocument = (req,res) => {
     descripcion:          req.body.descripcion,
     estatus:              req.body.estatus,
     fecha_creacion:       req.body.fecha_creacion,
+    estado:               req.body.estado,
   }
 
   Comentario.forge(newData).save()
@@ -66,6 +67,7 @@ exports.updateDocument = (req,res) => {
         descripcion:          req.body.descripcion,
         estatus:              req.body.estatus,
         fecha_creacion:       req.body.fecha_creacion,
+        estado:               req.body.estado,
       }
       
       comentario.save(updateData)

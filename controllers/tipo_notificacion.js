@@ -21,6 +21,7 @@ exports.createDocument = (req,res) => {
     nombre:             req.body.nombre,
     fecha_creacion:     req.body.fecha_creacion,
     estatus:            req.body.estatus,
+    descripcion:        req.body.descripcion,
   }
 
   Tipo_notificacion.forge(newData).save()
@@ -62,6 +63,7 @@ exports.updateDocument = (req,res) => {
         nombre:             req.body.nombre,
         fecha_creacion:     req.body.fecha_creacion,
         estatus:            req.body.estatus,
+        descripcion:        req.body.descripcion,
       }
       
       tipo_notificacion.save(updateData)

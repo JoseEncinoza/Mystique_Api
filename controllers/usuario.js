@@ -64,10 +64,11 @@ exports.updateDocument = (req,res) => {
   Usuario.forge(conditions).fetch()
     .then(function(usuario){
       if(!usuario) return res.status(404).json({ error : true, data : { message : 'usuario no existe' } });
-
-      //encriptado de contraseña
-      let salt = bcrypt.genSaltSync(12);
-      let hash = bcrypt.hashSync(req.body.contrasenia, salt);
+      if(req.body.contrasenia){
+        //encriptado de contraseña
+        var salt = bcrypt.genSaltSync(12);
+        var hash = bcrypt.hashSync(req.body.contrasenia, salt);
+      }
 
       let updateData = {
         id_rol:         req.body.id_rol,

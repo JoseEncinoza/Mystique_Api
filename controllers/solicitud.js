@@ -22,6 +22,9 @@ exports.createDocument = (req,res) => {
     id_promocion:       req.body.id_promocion,
     fecha_creacion:     req.body.fecha_creacion,
     estatus:            req.body.estatus,
+    estado:             req.body.estado,
+    empleado:           req.body.empleado,
+    sexo:               req.body.sexo,
   }
 
   Solicitud.forge(newData).save()
@@ -64,6 +67,9 @@ exports.updateDocument = (req,res) => {
         id_promocion:       req.body.id_promocion,
         fecha_creacion:     req.body.fecha_creacion,
         estatus:            req.body.estatus,
+        estado:             req.body.estado,
+        empleado:           req.body.empleado,
+        sexo:               req.body.sexo,
       }
       
       solicitud.save(updateData)
